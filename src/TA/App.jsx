@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import './App.css'
-import Card from './TA1/card'
+import React from 'react';
+import Card from './card';
+import "./App.css"
 
 const App = () => {
   const cards = [
@@ -30,17 +30,16 @@ const App = () => {
   return (
     <div>
       {cards.map((card, index) => (
-        <Card
-          key={index}
-          titulo={card.titulo}
-          descripcion={card.descripcion}
-          personaAsignada={card.personaAsignada}
-          fechaInicio={card.fechaInicio}
-          fechaFin={card.fechaFin}
-        />
+        <Card key={index}>
+          <h2 className="card-title">{card.titulo}</h2>
+          <p className="card-description">{card.descripcion}</p>
+          <p className="card-persona">Persona asignada: {card.personaAsignada}</p>
+          <p className="card-fecha-inicio">Fecha inicio: {card.fechaInicio}</p>
+          <p className="card-fecha-fin">Fecha fin: {card.fechaFin}</p>
+        </Card>
       ))}
     </div>
   );
 };
 
-export default App
+export default App;
